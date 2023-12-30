@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useState } from 'react'
 
-export type MouseContextType = {
+export interface MouseContextType {
   isHovering: boolean
   setIsHovering: React.Dispatch<React.SetStateAction<boolean>>
 }

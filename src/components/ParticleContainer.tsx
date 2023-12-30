@@ -1,10 +1,9 @@
-import {useEffect} from 'react'
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import Particles from 'react-tsparticles'
+import { loadFull } from 'tsparticles'
 
-function ParticleContainer() {
-  const particlesInit = async (main) => {
-    await loadFull(main);
+function ParticleContainer (): JSX.Element {
+  const particlesInit = async (main: any): Promise<any> => {
+    await loadFull(main)
   };
 
   return (
@@ -17,7 +16,7 @@ function ParticleContainer() {
         events: {
           onClick: {
             enable: true,
-            mode: "repulse"
+            mode: 'repulse'
           },
           // attract = "attract",
           // bounce = "bounce",
@@ -30,7 +29,7 @@ function ParticleContainer() {
           // trail = "trail"
           onHover: {
             enable: true,
-            mode: "attract",
+            mode: 'attract',
           },
           resize: true
         },
@@ -46,10 +45,10 @@ function ParticleContainer() {
       },
       particles: {
         color: {
-          value: "#31e245"
+          value: '#31e245'
         },
         links: {
-          color: "#a6a4a4",
+          color: '#a6a4a4',
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -59,10 +58,10 @@ function ParticleContainer() {
           enable: true
         },
         move: {
-          direction: "none",
+          direction: 'none',
           enable: true,
           outModes: {
-            default: "bounce"
+            default: 'bounce'
           },
           random: true,
           speed: 0.3,
@@ -79,7 +78,7 @@ function ParticleContainer() {
           value: 0.2
         },
         shape: {
-          type: "circle"
+          type: 'circle'
         },
         size: {
           value: { min: 1, max: 3 }
@@ -88,7 +87,7 @@ function ParticleContainer() {
       detectRetina: true
     }}
   />
-  );
+  )
 }
 
-export default ParticleContainer;
+export default ParticleContainer

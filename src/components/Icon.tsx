@@ -1,11 +1,6 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components';
-import { MouseContext } from '../contexts/MouseContext/MouseProvider';
-
-type IconProps = {
-  title: string
-  icon: JSX.Element
-};
+import { useContext } from 'react'
+import styled from 'styled-components'
+import { MouseContext } from '../contexts/MouseContext/MouseProvider'
 
 const StyledIcon = styled.div`
   display: flex;
@@ -22,15 +17,15 @@ const StyledIcon = styled.div`
   }
 `
 
-function Icon({ title, icon}) {
-  const {setIsHovering} = useContext(MouseContext)
+function Icon ({ title, icon }: { title: string, icon: JSX.Element }): JSX.Element {
+  const { setIsHovering } = useContext(MouseContext)
   return (
     <StyledIcon
-    onClick={() => console.log('clicked')}
-    onMouseEnter={() => setIsHovering(true)}
-    onMouseLeave={() => setIsHovering(false)}
+    onClick={() => { console.log('clicked') }}
+    onMouseEnter={() => { setIsHovering(true) }}
+    onMouseLeave={() => { setIsHovering(false) }}
     >
-      {icon}
+      {icon} {title}
     </StyledIcon>
   )
 }

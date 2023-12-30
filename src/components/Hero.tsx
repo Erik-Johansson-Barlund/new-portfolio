@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import VideoBackgroundHeading from './VideoBackgroundHeading';
+import { useState, useEffect } from 'react'
 
 const wordList = [
   'Javascript_',
@@ -13,36 +11,27 @@ const wordList = [
   'tacos_',
   'agile_',
   'Node JS_',
-  'WCAG_',
-];
+  'WCAG_'
+]
 
-const chars = ['_', '-'];
+const chars = ['_', '-']
 
-const HeroSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 10rem;
-  height: 100vh;
-  width: 100vw;
-`;
-
-
-function Hero() {
-  const [counter, setCounter] = useState(0);
+function Hero (): JSX.Element {
+  const [counter, setCounter] = useState(0)
   const [currentWord, setCurrentWord] = useState('')
   const [charCounter, setCharCounter] = useState(0)
 
   useEffect(() => {
     if (counter === wordList.length) {
-      setCounter(0);
-      return;
+      setCounter(0)
+      return
     };
 
-    const word = wordList[counter];
+    const word = wordList[counter]
 
     setTimeout(async () => {
-      const sourceWordSplit = word.split('');
-      const destinationWordSplit = currentWord.split('');
+      const sourceWordSplit = word.split('')
+      const destinationWordSplit = currentWord.split('')
 
       if (
         destinationWordSplit.length > 1 &&
@@ -52,9 +41,9 @@ function Hero() {
         if (destinationWordSplit.length === 0) {
           await new Promise(resolve => setTimeout(resolve, 500))
         }
-        setCurrentWord(destinationWordSplit.join(''));
+        setCurrentWord(destinationWordSplit.join(''))
 
-        return;
+        return
       }
 
       if (
@@ -63,16 +52,16 @@ function Hero() {
       ) {
         await new Promise(resolve => setTimeout(resolve, 1200))
         setCounter(old => old + 1)
-        return;
+        return
       }
 
-      let newChar;
+      let newChar
       if (charCounter !== 0) {
         destinationWordSplit.pop()
       }
 
       if (charCounter < 1) {
-        newChar = chars[charCounter];
+        newChar = chars[charCounter]
         setCharCounter(old => old + 1)
       } else {
         newChar = sourceWordSplit[currentWord.length - 1]
@@ -80,12 +69,11 @@ function Hero() {
       }
 
       destinationWordSplit.push(newChar)
-      setCurrentWord(destinationWordSplit.join(''));
-    }, 80);
+      setCurrentWord(destinationWordSplit.join(''))
+    }, 80)
   }, [counter, currentWord])
 
   return (
-    // <HeroSection>
     <div className="flex flex-col">
 <div className="relative flex flex-col w-128 h-40">
   <video
@@ -100,7 +88,6 @@ function Hero() {
     <source src="assets/lp.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
- 
   <svg
     className="w-128 absolute top-0 left-0 z-0"
     viewBox="0 0 620 280"

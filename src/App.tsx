@@ -1,23 +1,15 @@
-import { useState } from 'react'
 import './App.css'
-import Backdrop from './components/backdrop'
+import Backdrop from './components/Backdrop'
 import Hero from './components/Hero'
-import Backdrop2 from './components/Backdrop2'
 import Cv from './components/Cv'
 import IconRow from './components/IconRow'
 import MouseProvider from './contexts/MouseContext/MouseProvider'
 import ParticleContainer from './components/ParticleContainer'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App (): JSX.Element {
   return (
     <MouseProvider>
     <div>
-      
-
-      {/* <Backdrop2 /> */}
-      
       <Hero />
       <Backdrop />
       <ParticleContainer />

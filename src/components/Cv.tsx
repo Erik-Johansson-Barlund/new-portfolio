@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Cv() {
+function Cv (): JSX.Element {
   return (
     <div>
       <h2>A bit about me.</h2>
