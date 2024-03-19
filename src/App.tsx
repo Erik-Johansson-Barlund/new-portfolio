@@ -1,21 +1,16 @@
-import './App.css'
 import Backdrop from './components/Backdrop'
-import Hero from './components/Hero'
-import Cv from './components/Cv'
-import IconRow from './components/IconRow'
+import SocialRow from './components/SocialRow'
 import MouseProvider from './contexts/MouseContext/MouseProvider'
-import ParticleContainer from './components/ParticleContainer'
+import Router from './Router'
 
 function App (): JSX.Element {
   return (
     <MouseProvider>
-    <div>
-      <Hero />
-      <Backdrop />
-      <ParticleContainer />
-      <IconRow />
-      <Cv />
-    </div>
+      <div className='flex flex-col justify-center items-center w-screen h-screen overflow-hidden'>
+        <Router />
+        <Backdrop />
+        <SocialRow />
+      </div>
     </MouseProvider>
   )
 }

@@ -13,7 +13,7 @@ const initContext: MouseContextType = {
 export const MouseContext = createContext<MouseContextType>(initContext)
 
 // Create the provider component
-export default function MouseProvider({ children }: { children: React.ReactNode }): JSX.Element {
+export default function MouseProvider ({ children }: { children: React.ReactNode }): JSX.Element {
   const [isHovering, setIsHovering] = useState(false)
 
   const api: MouseContextType = useMemo(() => ({

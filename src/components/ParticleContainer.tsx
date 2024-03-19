@@ -1,13 +1,14 @@
-import Particles from 'react-tsparticles'
+import Particles from 'react-particles'
 import { loadFull } from 'tsparticles'
 
 function ParticleContainer (): JSX.Element {
   const particlesInit = async (main: any): Promise<any> => {
     await loadFull(main)
-  };
+  }
 
   return (
-    <Particles
+    <div className="absolute w-screen h-screen z-0">
+      <Particles
     id="tsparticles"
     init={particlesInit}
     options={{
@@ -18,38 +19,29 @@ function ParticleContainer (): JSX.Element {
             enable: true,
             mode: 'repulse'
           },
-          // attract = "attract",
-          // bounce = "bounce",
-          // bubble = "bubble",
-          // connect = "connect",
-          // grab = "grab",
-          // light = "light",
-          // repulse = "repulse",
-          // slow = "slow",
-          // trail = "trail"
           onHover: {
             enable: true,
-            mode: 'attract',
+            mode: 'attract'
           },
-          resize: true
+          resize: false
         },
         modes: {
           push: {
             quantity: 4
           },
           repulse: {
-            distance: 400,
+            distance: 1000,
             duration: 0.2
           }
         }
       },
       particles: {
         color: {
-          value: '#31e245'
+          value: '#0ef229'
         },
         links: {
-          color: '#a6a4a4',
-          distance: 150,
+          color: '#7e7575',
+          distance: 300,
           enable: true,
           opacity: 0.5,
           width: 1
@@ -61,10 +53,10 @@ function ParticleContainer (): JSX.Element {
           direction: 'none',
           enable: true,
           outModes: {
-            default: 'bounce'
+            default: 'out'
           },
           random: true,
-          speed: 0.3,
+          speed: 0.2,
           straight: false
         },
         number: {
@@ -72,10 +64,10 @@ function ParticleContainer (): JSX.Element {
             enable: true,
             area: 800
           },
-          value: 60
+          value: 20
         },
         opacity: {
-          value: 0.2
+          value: 0.4
         },
         shape: {
           type: 'circle'
@@ -87,6 +79,7 @@ function ParticleContainer (): JSX.Element {
       detectRetina: true
     }}
   />
+    </div>
   )
 }
 

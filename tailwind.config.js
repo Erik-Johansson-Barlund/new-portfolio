@@ -13,7 +13,10 @@ export default {
       width: {
         '128': '100rem',
         'lg': '38rem',
-      }
+      },
+      bg: {
+        'base': '#242424',
+      },
     },
   },
   plugins: [],

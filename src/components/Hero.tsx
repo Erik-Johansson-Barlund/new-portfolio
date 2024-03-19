@@ -74,39 +74,39 @@ function Hero (): JSX.Element {
   }, [counter, currentWord])
 
   return (
-    <div className="flex flex-col">
-<div className="relative flex flex-col w-128 h-40">
-  <video
+    <div className="flex flex-col justify-center items-start pl-80 pb-32">
+      <div className="relative flex flex-col w-screen h-44 overflow-hidden">
+        <video
     autoPlay
     loop
     muted
     playsInline
+    // preload={'true'}
     className="absolute top-0 object-bottom left-0 w-lg rounded-lg"
-    controls={true}
-    style={{ mask: 'url(#mask)' }} // Apply mask directly to the video
+    controls={false}
   >
-    <source src="assets/lp.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <svg
+          <source src="./assets/lp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <svg
     className="w-128 absolute top-0 left-0 z-0"
     viewBox="0 0 620 280"
     preserveAspectRatio="xMidYMid slice"
   >
-    <defs>
-      <mask id="mask" x="0" y="0" width="100%" height="140%">
-        <rect className="fill-white" x="0" y="0" width="100%" height="100%" /> {/* Masking area */}
-        <text className="shadow-sm" x="0" y="40" fontSize="30" fontWeight="900" fill="black">
-          <tspan x="0" dy="0">ERIK JOHANSSON</tspan>
-          <tspan x="0" dy="27">BÄRLUND</tspan>
-        </text>
-      </mask>
-    </defs>
-    <rect className="fill-#846969" x="0" y="0" width="240" height="100" fill="#242424" mask="url(#mask)" />
-  </svg>
-</div>
-<h1 className="text-white font-semibold pt-6 text-2xl z-50">Knows his way around {currentWord}</h1>
-</div>
+          <defs>
+            <mask id="mask" x="0" y="0" width="100%" height="140%">
+              <rect className="fill-white" x="0" y="0" width="100%" height="100%" /> {/* Masking area */}
+              <text className="shadow-sm" x="0" y="40" fontSize="30" fontWeight="900" fill="black">
+                <tspan x="0" dy="0">ERIK JOHANSSON</tspan>
+                <tspan x="0" dy="27">BÄRLUND</tspan>
+              </text>
+            </mask>
+          </defs>
+          <rect className="fill-#846969" x="0" y="0" width="240" height="100" fill="#242424" mask="url(#mask)" />
+        </svg>
+      </div>
+      <h1 className="text-white font-semibold pt-1 text-2xl">Knows his way around <span className=" text-green-300">{currentWord}</span></h1>
+    </div>
   )
 }
 

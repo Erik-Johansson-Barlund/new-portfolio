@@ -1,5 +1,6 @@
 {
   "name": "portfolio",
+  "homepage": "https://erik-johansson-barlund.github.io/new-portfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,18 +8,23 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-three/fiber": "^8.15.12",
     "@tsparticles/engine": "^3.0.3",
     "@tsparticles/preset-links": "^3.0.1",
     "@tsparticles/react": "^3.0.0",
+    "framer-motion": "^10.16.16",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-particles": "^2.12.2",
-    "react-tsparticles": "^2.12.2",
+    "react-router": "^6.21.1",
+    "react-router-dom": "^6.21.1",
     "styled-components": "^6.1.1",
     "three": "^0.160.0",
     "tsparticles": "^2.0.6"
@@ -39,6 +45,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3",

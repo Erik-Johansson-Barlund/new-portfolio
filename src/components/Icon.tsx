@@ -1,32 +1,26 @@
 import { useContext } from 'react'
-import styled from 'styled-components'
 import { MouseContext } from '../contexts/MouseContext/MouseProvider'
+import Clickable from './Clickable'
 
-const StyledIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  background-color: transparent;
-  border-radius: 50%;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #47400f;
-  }
-`
-
-function Icon ({ title, icon }: { title: string, icon: JSX.Element }): JSX.Element {
-  const { setIsHovering } = useContext(MouseContext)
+function Icon ({ title, icon, isLarge, navigate }: { title?: string, icon: JSX.Element, isLarge: boolean, navigate: any }): JSX.Element {
+  const large = 'relative flex justify-center items-center text-white shadow-md bg-zinc-900 p-3 min-w-32 rounded-md'
+  const small = 'relative flex items-center justify-center text-white shadow-md bg-zinc-950 p-3 rounded-xl hover:bg-zinc-700 hover:shadow-lg'
+  const filter = 'filter grayscale'
+  const hover = 'hover:bg-zinc-700 hover:shadow-lg hover:filter-none'
   return (
-    <StyledIcon
-    onClick={() => { console.log('clicked') }}
-    onMouseEnter={() => { setIsHovering(true) }}
-    onMouseLeave={() => { setIsHovering(false) }}
+    <div
+      className={`${isLarge ? large : small} ${hover}`}
+      onClick={navigate}
     >
-      {icon} {title}
-    </StyledIcon>
+      {icon}
+      {!!title && (
+        <>
+          <div className="p-1" />
+          {title}
+        </>
+      )}
+      <Clickable />
+    </div>
   )
 }
 
